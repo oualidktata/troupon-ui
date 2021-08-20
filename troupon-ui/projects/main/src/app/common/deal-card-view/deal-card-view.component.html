@@ -1,0 +1,28 @@
+<mat-card class="course-card mat-elevation-z10">
+
+    <mat-card-header>
+
+        <mat-card-title>{{dealViewModel.Description}}</mat-card-title>
+
+    </mat-card-header>
+
+    <img mat-card-image [src]="dealViewModel.IconUrl">
+
+    <mat-card-content>
+        <p>{{dealViewModel.LongDescription}}</p>
+    </mat-card-content>
+
+    <mat-card-actions class="course-actions">
+
+        <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/deals', dealViewModel.Id]">
+            VIEW COURSE
+        </button>
+
+        <button mat-button class="mat-raised-button mat-accent"
+                (click)="editDeal(dealViewModel)">
+            EDIT
+        </button>
+
+    </mat-card-actions>
+
+</mat-card>

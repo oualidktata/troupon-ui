@@ -3,9 +3,10 @@ import { createCustomElement } from '@angular/elements';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { AddDealDialogComponent } from './add-deal-dialog/add-deal-dialog.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AddDealDialogComponent],
   imports: [BrowserModule],
   providers: [],
   bootstrap: [],

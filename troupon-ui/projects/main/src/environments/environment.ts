@@ -2,8 +2,13 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
+import { IEnvironment } from './ienvironment';
+const apiHost = 'troupon.deals.local';
+const apiUrl = `http://${apiHost}'/api`;
+export const environment: IEnvironment = {
   production: false,
+  dealsBaseUri: 'assets/data/deals.json',
+  contactsBaseUri: 'assets/data/contacts.json',
 };
 
 /*

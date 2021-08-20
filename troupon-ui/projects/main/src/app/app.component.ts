@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
 import { AuthConfig, OAuthService } from 'angular-oauth2-oidc';
 
 export const authConfig: AuthConfig = {
@@ -9,46 +8,20 @@ export const authConfig: AuthConfig = {
 };
 
 @Component({
-  selector: 'add-contact',
+  selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
-  title = 'Add Contact';
-
-  contactForm: FormGroup = new FormGroup({});
-
+export class AppComponent {
+  title = 'Main app';
+  showContactForm: boolean = true;
   /**
    *
    */
-  constructor(private fb: FormBuilder, private oauthService: OAuthService) {
+  constructor(private oauthService: OAuthService) {
     this.oauthService.configure(authConfig);
     this.oauthService.loadDiscoveryDocumentAndTryLogin();
   }
-  ngOnInit() {
-    this.contactForm = this.fb.group({
-      email: '',
-      phones: this.fb.array([]),
-    });
-    this.contactForm.valueChanges.subscribe(console.log);
-  }
-
-  get phones() {
-    return this.contactForm.get('phones') as FormArray;
-  }
-
-  addPhone() {
-    const phone = this.fb.group({
-      area: [],
-      prefix: [],
-      line: [],
-    });
-    this.phones.push(phone);
-  }
-  deletePhone(index: number) {
-    this.phones.removeAt(index);
-  }
-
   login() {
     this.oauthService.initCodeFlow();
   }

@@ -1,24 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatSelectModule } from '@angular/material/select';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { MessagesComponent } from './messages/messages.component';
+import { MatModule } from './mat.module';
+import { LoadingComponent } from './loading/loading.component';
+import { MessagesService } from './messages/messages.service';
+import { LoadingService } from './loading/loading.service';
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
-  ],
-  exports: [
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
-  ],
+  declarations: [MessagesComponent, LoadingComponent],
+  imports: [CommonModule, MatModule],
+  exports: [MessagesComponent, LoadingComponent],
+  providers: [MessagesService, LoadingService],
 })
 export class SharedModule {}

@@ -2,10 +2,22 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "suppressImplicitAnyIndexErrors": true,
+    // "strictNullChecks":false,
+    // "strictPropertyInitialization": false,
+    "baseUrl": "./",
+    "paths": {
+      //https://stackoverflow.com/questions/63366191/vscode-tsconfig-paths-issue-files-get-pulled-in-but-i-get-cannot-find-module
+      "@app.main/*":["projects/main/src/app/*"],
+      "@environments.main/*":["projects/main/src/environments/*"],
+      "@shared.main/*":["projects/main/src/shared/*"],
+      "@deals.main/*":["projects/main/src/app/deals/*"],
+      "@contacts.main/*":["projects/main/src/app/contacts/*"],
+      "@services.main/*":["projects/main/src/app/services/*"]
+    },
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
